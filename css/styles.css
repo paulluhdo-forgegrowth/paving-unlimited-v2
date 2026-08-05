@@ -417,6 +417,26 @@ h3 { font-weight: 700; letter-spacing: -0.005em; }
 .why-card h3 { font-size: 18px; margin-bottom: 8px; }
 .why-card p { font-size: 15px; color: var(--grey); margin: 0; }
 
+/* Testimonial */
+.testimonial-section { background: var(--white); text-align: center; }
+.testimonial-inner { max-width: 820px; }
+.testimonial-card {
+  margin: var(--sp-5) 0 0;
+  padding: var(--sp-6);
+  border-left: 4px solid var(--orange);
+  background: var(--stone);
+  text-align: left;
+}
+.testimonial-card p {
+  margin: 0 0 var(--sp-3);
+  color: var(--black);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 600;
+  line-height: 1.45;
+}
+.testimonial-card footer { color: var(--grey); font-size: 15px; font-weight: 600; }
+
 /* =========================================================
    PROCESS
    ========================================================= */
