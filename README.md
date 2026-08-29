@@ -1,13 +1,13 @@
 # Paving Unlimited — Single-Page Website
 
 ## What's included
-- `index.html` — full single-page site: Header/Nav, Hero, Trust Bar, Featured Projects gallery + lightbox, Services, Client Testimonial, Why Choose Us, Process, Quote Form, Footer, sticky mobile call/WhatsApp bar.
+- `index.html` — full single-page site: Header/Nav, Hero, Trust Bar, Featured Projects gallery + lightbox, Services, Why Choose Us, Process, Quote Form, Footer, sticky mobile call/WhatsApp bar. (The Testimonials section has been removed — see below.)
 - `css/styles.css` — full design system (8px spacing scale, black/white/charcoal + controlled yellow accent, Montserrat + Inter type, the "measure line" signature divider)
 - `js/main.js` — mobile drawer, scroll-reveal, gallery lightbox, tick-mark generation for the measure-line divider, and quote-form validation + **live submission** (vanilla JS, no dependencies, no framework)
 - `functions/api/quote.js` — a real Cloudflare Pages Function that receives the quote form and sends it as an email via Resend. See **Form & deployment** below — this needs three environment variables set before it will actually send.
 - `.env.example` — documents the three environment variables the function needs (not real secrets — set the real values in the Cloudflare Pages dashboard).
 - `assets/` — the full approved production brand system, the Open Graph share image, and `assets/photos/` — real client project photography (see below)
-- The **hero image and all 11 Featured Projects gallery photos are genuine, unretouched Paving Unlimited project photography** — not stock, not AI-generated. The **Driveways**, **Estate Roads**, and **Kerbing** service cards also use real photos.
+- The **hero image and all 11 Featured Projects gallery photos are genuine, unretouched Paving Unlimited project photography** — not stock, not AI-generated. Three of the six Services cards (**Driveways**, **Estate Roads**, **Curbing**) now also use real photos. The remaining three Services cards (Patios, Pool Areas, Repairs & Maintenance) still use Unsplash stock as illustrative placeholders (flagged in code comments and alt text), since no matching real photo for those specific service types has been supplied yet.
 
 ## Real project photography
 The hero and gallery now use 7 of the client's own completed-project photographs, selected and ordered to tell a deliberate story (residential → estate → commercial → residential → architectural detail → premium finish → craftsmanship close-up), per the brief. Processing applied to each was limited to real, conservative corrections — no content was invented, removed, or replaced:
@@ -45,15 +45,17 @@ The gallery is now 9 photos rather than 7 — the two additions extend the origi
 
 | Original file | Used as | Final file |
 |---|---|---|
-| `Isandovale_4.jpg` | Services — **Kerbing** card photo | `pu-curbing-edge-detail.jpg` |
+| `Isandovale_4.jpg` | Services — **Curbing** card photo | `pu-curbing-edge-detail.jpg` |
 | `Isandovale_2.jpg` | Gallery #10 — Commercial Development | `pu-commercial-development-progress.jpg` |
 | `Isandovale_3.jpg` | Gallery #11 — Warehouse Access Walkway | `pu-terracotta-herringbone-walkway.jpg` |
 
-The gallery is now 11 photos. The Kerbing card uses `Isandovale_4.jpg`, where the grey kerb/edge restraint blocks are genuinely visible bordering the paving.
+The gallery is now 11 photos. Curbing was chosen for `Isandovale_4.jpg` because the grey curb/edge restraint blocks are genuinely visible bordering the paving in that shot — the same rule as always: a real photo is only used for a service card if it actually shows that service.
 
-Driveways, Estate Roads, and Kerbing use real project photography.
+**Still stock, still no matching real photo supplied:** Patios, Pool Areas, and Repairs & Maintenance service cards. Driveways, Estate Roads, and Curbing are now all real photography.
 
 ## Brand identity — production assets
+**Logo fix (this deployment):** `paving-unlimited-logo-dark.svg`/`.png` and the `-light` versions were replaced. The versions previously in this package had two real bugs: the paver-block icon was being clipped by the SVG's own viewBox (its bottom edge fell outside the canvas, which is why it rendered as a tiny cut-off sliver in the header/footer), and the wordmark had regressed to live `<text>` in a generic Arial/Helvetica fallback instead of the vector-outlined type. Both are fixed — verified by rendering at the actual deployed sizes (54px header, 48px footer) before shipping, not just checked at full size. The standalone icon files (`paving-unlimited-mark*.svg`) were unaffected and untouched.
+
 The logo has been rebuilt as true vector artwork from your approved concept (geometric "P" + a 7-block perspective paving grid, one block in yellow), not cropped from the presentation image. Colours were sampled directly from your reference: black `#131414`, charcoal `#4E4F50`/`#3A3A3C`, yellow `#F1B507` — a flat, controlled accent, not gold or metallic.
 
 **Files in `assets/`:**
@@ -78,16 +80,16 @@ The logo has been rebuilt as true vector artwork from your approved concept (geo
 - Confirm the exact yellow Pantone/CMYK match before ordering physical signage or a vehicle wrap — the hex values above are screen colour only and can shift in print.
 - Minimum recommended size: don't reproduce the full icon (P + all 7 blocks) smaller than about 32px / 8mm, or the block grid detail starts to lose definition — the 16×16 favicon already pushes this limit, which is normal for a detailed mark at that size.
 
-## Removed for this deployment pass
-The following were removed outright rather than shipped as flagged placeholders, since there was no confirmed real content to put in their place and a visible "placeholder" tag on a live site looks unfinished:
-- **Testimonials section** — the former illustrative quotes remain removed. One genuine, approved testimonial from Dr Dillon Williams has now been added.
+## Removed for this deployment pass, later partially restored
+- **Testimonials section** — previously removed entirely (three illustrative/placeholder quotes deleted along with the nav link), then **restored** with one genuine, verbatim client review (Andrew Albarn) once a real testimonial was supplied. The section now uses a single-card layout rather than the old 3-column grid, since a 3-column grid with one real card and two empty slots would look unfinished. Add more genuine reviews the same way as they come in — the CSS (`.testimonial-card--single`) currently assumes one card; ask for a multi-card layout once you have 3+.
 - **Footer map placeholder** — the empty "Map — pending confirmed address" panel is gone. Add a real Google Maps embed once the address is confirmed.
 - **Footer physical address and business hours** — removed from the Contact footer column; it only lists phone and email now, which are both confirmed and correct.
 - **Footer "Operating Areas" column** — removed entirely (not just the one line that was tagged). All four listed areas were an assumption, not confirmed coverage, so the whole column is gone rather than shipping three "confirmed-sounding" lines next to one visibly flagged one.
 
 ## Still on the site, still placeholder
-1. **Remaining Services section photography** — confirm whether any locally hosted illustrative service images should be replaced when more client photography becomes available.
+1. **Remaining Services section photography** — the Patios and Pool Areas cards still use Unsplash stock as illustrative placeholders (flagged in code comments and alt text). Driveways, Estate Roads, Curbing, and Repairs & Maintenance now use real photography, and the hero and gallery are real — see above.
 2. **Facebook link** — placeholder `#` anchor in the footer; add the real profile URL or remove if inactive (per FC-011, never link an inactive profile).
+3. **Repairs & Maintenance photo** — two new candidate photos were supplied but not used: one had a visible Alamy watermark, and the other shared identical suspicious thumbnail dimensions/style with it, strongly suggesting both are unlicensed stock preview images rather than real client photos. The existing genuine repairs photo was left in place. Send the real/licensed originals if you'd like this swapped.
 
 Contact details (phone, WhatsApp, email, contact name) are already final and confirmed throughout the site and in the JSON-LD schema — no placeholder tags remain on these.
 
@@ -138,7 +140,7 @@ The function sends the enquiry as an email using **Resend** (https://resend.com)
 1. Confirm the physical address (if one should be publicly displayed) and business hours — these were removed from the footer rather than shown unconfirmed, so nothing is live until you confirm them.
 2. Confirm the operating areas/suburbs to list in the footer, if you'd like that section back — it was removed rather than shown with an assumption.
 3. Provide real project photography for the 3 remaining Services cards (Patios, Pool Areas, Repairs & Maintenance still use stock), plus a real photo to eventually replace the Open Graph share image's background.
-4. Add further genuine, approved client testimonials as they become available.
+4. Provide 3+ genuine, approved client testimonials, with permission to use first names and suburb — the Testimonials section was removed entirely and needs to be rebuilt once you have real quotes.
 5. Confirm whether a Facebook page is active; if so, provide the URL for the footer link.
 6. Complete the three Resend/Cloudflare setup steps above (domain verification, API key, environment variables) so the quote form actually sends email.
 7. Confirm the exact legal business name and any registration/founding details for the schema markup.
