@@ -131,7 +131,7 @@ export async function onRequestPost(context) {
     patio: "Patio",
     "estate-road": "Estate Road",
     "pool-area": "Pool Area",
-    kerbing: "Kerbing",
+    curbing: "Curbing",
     repairs: "Repairs & Maintenance",
     other: "Other",
   };

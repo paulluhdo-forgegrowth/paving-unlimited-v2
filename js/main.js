@@ -27,7 +27,7 @@
   --------------------------------------------- */
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!prefersReducedMotion && "IntersectionObserver" in window) {
-    const revealSelector = ".service-card, .why-card, .process-step, .trust-item";
+    const revealSelector = ".service-card, .why-card, .process-step, .trust-item, .testimonial-card--single";
     const revealEls = Array.from(document.querySelectorAll(revealSelector));
     const revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -44,7 +44,7 @@
     }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   } else {
-    document.querySelectorAll(".service-card, .why-card, .process-step, .trust-item")
+    document.querySelectorAll(".service-card, .why-card, .process-step, .trust-item, .testimonial-card--single")
       .forEach(function (el) { el.classList.add("is-visible"); });
   }
 

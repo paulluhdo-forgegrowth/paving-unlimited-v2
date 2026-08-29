@@ -22,7 +22,7 @@ The hero and gallery now use 7 of the client's own completed-project photographs
 |---|---|---|
 | `PU_8.JPG` | Hero + gallery #1 — Residential Driveway | `pu-grey-driveway-hero.jpg` |
 | `PU_9.JPG` | Gallery #2 — Luxury Estate Entrance | `pu-charcoal-courtyard.jpg` |
-| `PU_4.JPG` | Gallery #3 — Commercial Courtyard | `pu-commercial-courtyard.jpg` |
+| `PU_4.JPG` | Gallery #3 — Commercial & Industrial Applications | `pu-commercial-courtyard.jpg` |
 | `PU_6.JPG` | Gallery #4 — Private Residence | `pu-red-brick-driveway.jpg` |
 | `PU_2.JPG` | Gallery #5 — Architectural Paving | `pu-herringbone-entrance.jpg` |
 | `PU_7.JPG` | Gallery #6 — Premium Cobble Finish | `pu-grey-cobble-driveway.jpg` |
