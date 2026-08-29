@@ -66,7 +66,7 @@
   opacity: 0; transform: translateY(18px);
   transition: opacity 600ms ease, transform 600ms ease;
 }
-.service-card.is-visible, .why-card.is-visible, .process-step.is-visible, .trust-item.is-visible {
+.service-card.is-visible, .why-card.is-visible, .process-step.is-visible, .trust-item.is-visible, .testimonial-card--single.is-visible {
   opacity: 1; transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -472,18 +472,18 @@ h3 { font-weight: 700; letter-spacing: -0.005em; }
 .contact-buttons {
   display: grid; grid-template-columns: 1fr; gap: var(--sp-2); margin: var(--sp-4) 0;
 }
-@media (min-width: 560px) { .contact-buttons { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 720px) { .contact-buttons { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 900px) { .contact-buttons { grid-template-columns: 1fr; } }
 .contact-btn {
   display: flex; align-items: center; gap: var(--sp-3);
   background: var(--black); color: var(--white);
   border-radius: var(--radius-md); padding: var(--sp-3) var(--sp-4);
-  min-height: 64px; position: relative;
+  min-width: 0; min-height: 64px; position: relative;
   transition: transform 180ms ease, background-color 180ms ease;
 }
 .contact-btn:hover { background: var(--black-soft); transform: translateY(-2px); }
 .contact-btn svg { width: 24px; height: 24px; flex-shrink: 0; color: var(--gold); }
-.contact-btn span:not(.placeholder-tag) { font-size: 14px; line-height: 1.4; }
+.contact-btn span:not(.placeholder-tag) { min-width: 0; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
 .contact-btn strong { font-size: 16px; font-weight: 700; }
 .contact-btn--whatsapp svg { color: #25D366; }
 .contact-btn .placeholder-tag { position: absolute; top: 8px; right: 10px; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
@@ -504,22 +504,28 @@ h3 { font-weight: 700; letter-spacing: -0.005em; }
 .reassurance-note { font-weight: 400; color: var(--grey); text-transform: none; font-size: 13px; }
 
 .quote-form {
+  min-width: 0;
   background: var(--white); border-radius: var(--radius-lg); padding: var(--sp-5);
   box-shadow: var(--shadow-sm); border: 1px solid var(--grey-line);
 }
 .hp-field { position: absolute; left: -9999px; }
 .form-row { margin-bottom: var(--sp-3); display: flex; flex-direction: column; gap: 8px; }
-.form-row-split { display: grid; grid-template-columns: 1fr; gap: var(--sp-3); }
-@media (min-width: 560px) { .form-row-split { grid-template-columns: 1fr 1fr; } }
-.form-row-split > div { display: flex; flex-direction: column; gap: 8px; }
+.form-row-split { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-3); }
+@media (min-width: 720px) { .form-row-split { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.form-row-split > div { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 label { font-size: 14px; font-weight: 600; color: var(--black); }
 input, select, textarea {
+  width: 100%; max-width: 100%; min-width: 0;
   height: 52px; border: 1px solid var(--grey-line); border-radius: var(--radius-sm);
   padding: 0 16px; font-family: var(--font-body); font-size: 15px; background: var(--white); color: var(--ink);
 }
 textarea { height: auto; min-height: 120px; padding: 14px 16px; resize: vertical; }
 input:focus, select:focus, textarea:focus { border-color: var(--gold); }
 input[type="file"] { height: auto; padding: 12px 16px; }
+@media (max-width: 560px) {
+  .quote-form { padding: var(--sp-3); border-radius: var(--radius-md); }
+  .testimonial-card--single { padding: var(--sp-3); }
+}
 .field-error { font-size: 13px; color: #B3261E; min-height: 16px; }
 .form-success {
   margin-top: var(--sp-3); background: #EAF4EC; color: #1E5C34; border-radius: var(--radius-sm);
